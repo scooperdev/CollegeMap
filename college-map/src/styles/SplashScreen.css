@@ -27,3 +27,12 @@
 .enter-button:hover {
   background-color: #1976d2;
 }
+
+.credits {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.75rem;
+  color: #666;
+  opacity: 0.8;
+}
