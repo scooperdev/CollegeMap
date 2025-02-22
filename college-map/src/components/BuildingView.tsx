@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import '../styles/BuildingView.css';
 import whitneyFloor1 from '../assets/whitney-floor1.png';
 
@@ -18,6 +19,7 @@ const buildingNames = {
 const BuildingView = () => {
   const { buildingId } = useParams();
   const navigate = useNavigate();
+  const [isZoomed, setIsZoomed] = useState(false);
 
   if (!buildingId || !buildingImages[buildingId]) {
     // redirect to building select and flash error message
@@ -27,10 +29,17 @@ const BuildingView = () => {
     return null;
   }
 
+  const toggleZoom = () => {
+    setIsZoomed(!isZoomed);
+  };
+
   return (
     <div className="building-container">
       <h1>{buildingNames[buildingId]} - First Floor</h1>
-      <div className="floor-plan">
+      <button className="zoom-button" onClick={toggleZoom}>
+        {isZoomed ? 'Zoom Out' : 'Zoom In'}
+      </button>
+      <div className={`floor-plan ${isZoomed ? 'zoomed' : ''}`}>
         <img 
           src={buildingImages[buildingId].floor1}
           alt={`${buildingNames[buildingId]} Floor 1`} 
