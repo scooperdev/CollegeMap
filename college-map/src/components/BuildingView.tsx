@@ -35,6 +35,12 @@ const BuildingView = () => {
 
   return (
     <div className="building-container">
+      <button 
+        className="back-button"
+        onClick={() => navigate('/buildings')}
+      >
+        Back to Buildings
+      </button>
       <h1>{buildingNames[buildingId]} - First Floor</h1>
       <button className="zoom-button" onClick={toggleZoom}>
         {isZoomed ? 'Zoom Out' : 'Zoom In'}

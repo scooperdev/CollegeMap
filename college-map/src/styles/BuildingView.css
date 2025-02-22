@@ -65,3 +65,22 @@
 .zoom-button:hover {
   background-color: #1976d2;
 }
+
+.back-button {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+  background-color: #1976d2;
+}
