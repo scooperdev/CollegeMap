@@ -1,0 +1,25 @@
+.building-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.floor-plan {
+  margin-top: 2rem;
+  border: 1px solid #444;
+  padding: 1rem;
+  max-width: 90vw;
+  background-color: #2a2a2a;
+}
+
+.floor-plan img {
+  max-width: 100%;
+  height: auto;
+}
