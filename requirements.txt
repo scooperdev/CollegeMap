@@ -1,0 +1,18 @@
+while this is not a python web app, this will still serve as instructions to build and run the web app.
+
+you need:
+
+nodejs npm
+
+(sudo apt install nodejs npm) - example install script for npm for ubuntu
+
+then, to run it, you can run:
+
+
+npm install
+
+and then:
+
+npm run dev
+
+then, once opening the link to the hosted web app on your local machine, you can test the app for yourself.
