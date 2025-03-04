@@ -1,0 +1,86 @@
+.building-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.floor-plan {
+  margin-top: 4rem;
+  border: 1px solid #444;
+  padding: 1rem;
+  max-width: 90vw;
+  max-height: 70vh;
+  background-color: #2a2a2a;
+  transition: transform 0.3s ease;
+  overflow: auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.floor-plan.zoomed {
+  transform: scale(2);
+  transform-origin: top center;
+  cursor: move;
+  z-index: 1;
+  overflow: auto;
+  padding: 4rem;
+  height: 70vh;
+  margin-top: 8rem;
+}
+
+.floor-plan img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.zoom-button {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: fixed;
+  bottom: 2rem;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.zoom-button:hover {
+  background-color: #1976d2;
+}
+
+.back-button {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+  background-color: #1976d2;
+}
