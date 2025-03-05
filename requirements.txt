@@ -6,13 +6,17 @@ nodejs npm
 
 (sudo apt install nodejs npm) - example install script for npm for ubuntu
 
-then, to run it, you can run:
-
+for set up, do:
 
 npm install
 
-and then:
+and then, to set up the database, do:
+chmod +x run-db.sh
 
+after all of that setup, you can start the app by running:
+
+./run-db.sh
 npm run dev
 
 then, once opening the link to the hosted web app on your local machine, you can test the app for yourself.
+be sure to run docker stop college-map-db when you are done with the app!

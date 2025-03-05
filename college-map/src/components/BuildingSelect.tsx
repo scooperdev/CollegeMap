@@ -3,7 +3,7 @@ import '../styles/BuildingSelect.css';
 
 const buildings = [
   {
-    id: 'whitney',
+    id: 'whitneyfloor1',
     name: 'Whitney Building',
     description: 'Main academic center',
     floors: [
