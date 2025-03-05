@@ -35,11 +35,11 @@ const RoomSearch = () => {
         type="text"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Enter room number (e.g. 101) or name"
+        placeholder="Enter room name / no. (e.g. 101)"
         className="search-input"
       />
       <button onClick={handleSearch} className="search-button">
-        Search Room
+        Find Room
       </button>
       {error && <div className="search-error">{error}</div>}
     </div>
