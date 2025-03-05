@@ -3,16 +3,16 @@ import { useState } from 'react';
 import '../styles/BuildingView.css';
 import whitneyFloor1 from '../assets/whitney-floor1.png';
 
-// Map of building images
+// building floor plan image names
 const buildingImages = {
-  'whitney': {
+  'whitneyfloor1': {
     'floor1': whitneyFloor1
   }
 };
 
 // buildings
 const buildingNames = {
-  'whitney': 'Whitney Building'
+  'whitneyfloor1': 'Whitney Building'
 };
 
 // dynamic buildingview component

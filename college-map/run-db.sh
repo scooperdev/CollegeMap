@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # Stop and remove existing container if it already exists

@@ -3,7 +3,7 @@ import '../styles/BuildingSelect.css';
 
 const buildings = [
   {
-    id: 'whitneyfloor1',
+    id: 'whitneyfloor1', 
     name: 'Whitney Building',
     description: 'Main academic center',
     floors: [
@@ -12,10 +12,8 @@ const buildings = [
         name: 'First Floor',
         image: 'whitney-floor1.png'
       }
-      // Add more floors here later
     ]
   }
-  // Add more buildings here later=
 ];
 
 const BuildingSelect = () => {
