@@ -25,7 +25,12 @@ chmod +x run-db.sh
 after that set up, to start the app, do:
 
 ./run-db.sh
+
+then, open another terminal instance keeping the last one open and run 
+
 npm run dev
+
+make sure that you run these commands while inside /college-map/!
 
 ctrl click the link that pops up in the terminal, and you can see the web app in full!
 
