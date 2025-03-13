@@ -5,7 +5,7 @@
 docker stop college-map-db 2>/dev/null
 docker rm college-map-db 2>/dev/null
 
-# Build the Docker image
+# build the docker image
 echo "Building Docker image..."
 docker build -t college-map-db .
 
