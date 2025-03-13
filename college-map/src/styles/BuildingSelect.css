@@ -7,10 +7,10 @@
   max-width: 1200px;
   margin: 0 auto;
   min-height: calc(100vh - 60px);
-  background-color: #1a1a1a;
+  background-color: rgba(26, 26, 26, 0.5);
+  backdrop-filter: blur(8px);
   color: #ffffff;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .buildings-grid {
@@ -29,11 +29,13 @@
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   color: #ffffff;
+  backdrop-filter: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .building-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .building-card h2 {

@@ -1,8 +1,9 @@
 USE college_map;
 
 -- buildings
-INSERT INTO buildings (id, name, description, floor_plan_image) 
-VALUES ('whitneyfloor1', 'Whitney Building First Floor', 'Main academic center first floor', 'whitney-floor1.png');
+INSERT INTO buildings (id, name, description, floor_plan_image) VALUES 
+('whitneyfloor1', 'Whitney Building First Floor', 'Main academic center first floor', 'whitney-floor1.png'),
+('whitneyfloor2', 'Whitney Building Second Floor', 'Main academic center second floor', 'whitney-floor2.png');
 
 -- whitney floor 1 rooms
 INSERT INTO rooms (id, building_id, room_number, room_name, floor_number) VALUES
@@ -195,3 +196,7 @@ INSERT INTO rooms (id, building_id, room_number, room_name, floor_number) VALUES
 ('w2_208', 'whitneyfloor1', '208', 'Lab', 2),
 ('w2_209', 'whitneyfloor1', '209', 'PC Lab', 2),
 ('w2_210', 'whitneyfloor1', '210', 'Analytics Lab', 2);
+
+UPDATE rooms 
+SET building_id = 'whitneyfloor2' 
+WHERE floor_number = 2;

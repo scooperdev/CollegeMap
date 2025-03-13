@@ -38,3 +38,14 @@
 .header-button:hover {
   background-color: #1976d2;
 }
+
+.header-logo {
+  height: 40px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-right: 1rem;
+}
+
+.header-logo:hover {
+  opacity: 0.8;
+}

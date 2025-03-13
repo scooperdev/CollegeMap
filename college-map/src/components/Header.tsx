@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import RoomSearch from './RoomSearch';
 import '../styles/Header.css';
+import logo from '../assets/Sheridan_College_Logo-Blue.png';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -8,9 +9,12 @@ const Header = () => {
   return (
     <header className="site-header">
       <div className="header-left">
-        <button onClick={() => navigate('/')} className="header-button">
-          Home
-        </button>
+        <img 
+          src={logo} 
+          alt="Sheridan College Logo" 
+          className="header-logo" 
+          onClick={() => navigate('/')}
+        />
         <button onClick={() => navigate('/buildings')} className="header-button">
           Buildings
         </button>

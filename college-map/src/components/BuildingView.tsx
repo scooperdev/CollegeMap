@@ -17,6 +17,19 @@ const buildingData = {
         name: 'Second Floor'
       }
     }
+  },
+  'whitneyfloor2': {
+    name: 'Whitney Building',
+    floors: {
+      1: {
+        image: whitneyFloor1,
+        name: 'First Floor'
+      },
+      2: {
+        image: whitneyFloor2,
+        name: 'Second Floor'
+      }
+    }
   }
 };
 
@@ -24,7 +37,10 @@ const BuildingView = () => {
   const { buildingId } = useParams();
   const navigate = useNavigate();
   const [isZoomed, setIsZoomed] = useState(false);
-  const [currentFloor, setCurrentFloor] = useState(1);
+  const [currentFloor, setCurrentFloor] = useState(() => {
+    if (buildingId === 'whitneyfloor2') return 2;
+    return 1;
+  });
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -65,20 +81,18 @@ const BuildingView = () => {
   };
 
   const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault(); // Prevent default scroll
+    e.preventDefault();
     const zoomSensitivity = 0.001;
     const delta = -e.deltaY * zoomSensitivity;
     
     if (isZoomed || e.ctrlKey) {
       const newScale = Math.min(Math.max(0.5, scale * (1 + delta)), 4);
       
-      // Calculate cursor position relative to the image center
       const rect = containerRef.current?.getBoundingClientRect();
       if (rect) {
         const mouseX = e.clientX - rect.left;
         const mouseY = e.clientY - rect.top;
         
-        // Adjust position to maintain zoom point under cursor
         const scaleChange = newScale - scale;
         setPosition({
           x: position.x - (mouseX - rect.width / 2) * (scaleChange / scale),
@@ -105,6 +119,12 @@ const BuildingView = () => {
     }
   }, [isZoomed]);
 
+  const handleFloorChange = (newFloor: number) => {
+    setCurrentFloor(newFloor);
+    const newBuildingId = newFloor === 2 ? 'whitneyfloor2' : 'whitneyfloor1';
+    navigate(`/building/${newBuildingId}`);
+  };
+
   const toggleZoom = () => {
     setIsZoomed(!isZoomed);
     setScale(isZoomed ? 1 : 2);
@@ -119,7 +139,7 @@ const BuildingView = () => {
         {currentFloor < maxFloor && (
           <button 
             className="floor-button"
-            onClick={() => setCurrentFloor(currentFloor + 1)}
+            onClick={() => handleFloorChange(currentFloor + 1)}
           >
             Go Up to Floor {currentFloor + 1}
           </button>
@@ -127,7 +147,7 @@ const BuildingView = () => {
         {currentFloor > 1 && (
           <button 
             className="floor-button"
-            onClick={() => setCurrentFloor(currentFloor - 1)}
+            onClick={() => handleFloorChange(currentFloor - 1)}
           >
             Go Down to Floor {currentFloor - 1}
           </button>
