@@ -1,8 +1,9 @@
 USE college_map;
 
 -- buildings
-INSERT INTO buildings (id, name, description, floor_plan_image) 
-VALUES ('whitneyfloor1', 'Whitney Building First Floor', 'Main academic center first floor', 'whitney-floor1.png');
+INSERT INTO buildings (id, name, description, floor_plan_image) VALUES 
+('whitneyfloor1', 'Whitney Building First Floor', 'Main academic center first floor', 'whitney-floor1.png'),
+('whitneyfloor2', 'Whitney Building Second Floor', 'Main academic center second floor', 'whitney-floor2.png');
 
 -- whitney floor 1 rooms
 INSERT INTO rooms (id, building_id, room_number, room_name, floor_number) VALUES
@@ -174,3 +175,28 @@ INSERT INTO rooms (id, building_id, room_number, room_name, floor_number) VALUES
 ('w_waiting', 'whitneyfloor1', 'WAIT', 'Waiting Room', 1),
 ('w_190', 'whitneyfloor1', '190', 'Dental Clinic', 1),
 ('w_190b', 'whitneyfloor1', '190B', 'Room 190B', 1);
+
+-- whitney floor 2 rooms
+INSERT INTO rooms (id, building_id, room_number, room_name, floor_number) VALUES
+('w2_201', 'whitneyfloor1', '201', 'Room 201', 2),
+('w2_202', 'whitneyfloor1', '202', 'Lab', 2),
+('w2_203', 'whitneyfloor1', '203', 'Room 203', 2),
+('w2_204', 'whitneyfloor1', '204', 'Office Pod', 2),
+('w2_204a', 'whitneyfloor1', '204A', 'Room 204A', 2),
+('w2_204b', 'whitneyfloor1', '204B', 'Room 204B', 2),
+('w2_204c', 'whitneyfloor1', '204C', 'Room 204C', 2),
+('w2_204d', 'whitneyfloor1', '204D', 'Room 204D', 2),
+('w2_204e', 'whitneyfloor1', '204E', 'Room 204E', 2),
+('w2_204g', 'whitneyfloor1', '204G', 'Room 204G', 2),
+('w2_204j', 'whitneyfloor1', '204J', 'Room 204J', 2),
+('w2_205', 'whitneyfloor1', '205', 'GIS Lab', 2),
+('w2_205a', 'whitneyfloor1', '205A', 'Plot Room', 2),
+('w2_206', 'whitneyfloor1', '206', 'Testing Lab', 2),
+('w2_207', 'whitneyfloor1', '207', 'Mac Lab', 2),
+('w2_208', 'whitneyfloor1', '208', 'Lab', 2),
+('w2_209', 'whitneyfloor1', '209', 'PC Lab', 2),
+('w2_210', 'whitneyfloor1', '210', 'Analytics Lab', 2);
+
+UPDATE rooms 
+SET building_id = 'whitneyfloor2' 
+WHERE floor_number = 2;

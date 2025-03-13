@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useState, KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { searchRoom } from '../db/index.mts';
 import '../styles/RoomSearch.css';
 
-const RoomSearch = () => {
+interface RoomSearchProps {
+  compact?: boolean;
+}
+
+const RoomSearch = ({ compact = false }: RoomSearchProps) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -29,18 +33,27 @@ const RoomSearch = () => {
     }
   };
 
+  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
-    <div className="room-search">
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Enter room name / no. (e.g. 101)"
-        className="search-input"
-      />
-      <button onClick={handleSearch} className="search-button">
-        Find Room
-      </button>
+    <div className={`room-search ${compact ? 'compact' : ''}`}>
+      <div className="search-input-container">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyPress={handleKeyPress}
+          placeholder="Enter room name / no. (e.g. 101)"
+          className="search-input"
+        />
+        <button onClick={handleSearch} className="search-button">
+          🔍
+        </button>
+      </div>
       {error && <div className="search-error">{error}</div>}
     </div>
   );
