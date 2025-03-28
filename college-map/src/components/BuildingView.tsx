@@ -1,8 +1,10 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import '../styles/BuildingView.css';
 import whitneyFloor1 from '../assets/whitney-floor1.png';
 import whitneyFloor2 from '../assets/whitney-floor2.png';
+import RoomOverlay from './RoomOverlay';
+import { whitney1Coordinates, whitney2Coordinates } from '../data/roomCoordinates';
 
 const buildingData = {
   'whitneyfloor1': {
@@ -35,7 +37,11 @@ const buildingData = {
 
 const BuildingView = () => {
   const { buildingId } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
+  const [highlightedRoomId, setHighlightedRoomId] = useState<string | null>(
+    location.state?.highlightedRoom || null
+  );
   const [isZoomed, setIsZoomed] = useState(false);
   const [currentFloor, setCurrentFloor] = useState(() => {
     if (buildingId === 'whitneyfloor2') return 2;
@@ -46,6 +52,7 @@ const BuildingView = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
+  const [devMode, setDevMode] = useState(false);
 
   if (!buildingId || !buildingData[buildingId]) {
     navigate('/buildings');
@@ -131,6 +138,29 @@ const BuildingView = () => {
     setPosition({ x: 0, y: 0 });
   };
 
+  const handleRoomClick = (room: RoomCoordinate) => {
+    setHighlightedRoomId(room.id);
+    console.log(`Clicked room: ${room.label}`);
+  };
+
+  const handleDevClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!devMode) return;
+    
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Calculate percentages
+    const percentX = (x / rect.width) * 100;
+    const percentY = (y / rect.height) * 100;
+    
+    console.log(`Clicked at: x: ${Math.round(percentX)}%, y: ${Math.round(percentY)}%`);
+  };
+
+  const getCoordinatesForCurrentFloor = () => {
+    return currentFloor === 2 ? whitney2Coordinates : whitney1Coordinates;
+  };
+
   return (
     <div className="building-container">      
       <h1>{building.name} - {building.floors[currentFloor].name}</h1>
@@ -165,20 +195,34 @@ const BuildingView = () => {
       >
         <div 
           className="floor-plan-content"
+          onClick={handleDevClick}
           style={{
             transform: `scale(${scale}) translate(${position.x}px, ${position.y}px)`,
-            cursor: isDragging ? 'grabbing' : (isZoomed ? 'grab' : 'default')
+            cursor: isDragging ? 'grabbing' : (isZoomed ? 'grab' : 'default'),
+            position: 'relative'
           }}
         >
           <img 
             src={building.floors[currentFloor].image}
             alt={`${building.name} ${building.floors[currentFloor].name}`}
           />
+          
+          {getCoordinatesForCurrentFloor().map((room) => (
+            <RoomOverlay
+              key={room.id}
+              room={room}
+              onClick={handleRoomClick}
+              isHighlighted={room.id === highlightedRoomId}
+            />
+          ))}
         </div>
       </div>
 
       <button className="zoom-button" onClick={toggleZoom}>
         {isZoomed ? 'Reset View' : 'Zoom In'}
+      </button>
+      <button className="dev-button" onClick={() => setDevMode(!devMode)}>
+        {devMode ? 'Dev Mode: ON' : 'Dev Mode: OFF'}
       </button>
     </div>
   );

@@ -13,26 +13,30 @@
   z-index: 1;
 }
 
-
+.floor-plan {
+  position: relative;
+  width: 100%;
+  max-width: 2115px; /* Match largest floor plan width */
+  aspect-ratio: 2115/1242; /* Match whitney-floor1 aspect ratio */
+  overflow: hidden;
+  margin: 0 auto;
+}
 
 .floor-plan-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: transform 0.1s ease;
   transform-origin: center center;
-  will-change: transform;
-  user-select: none;
-  -webkit-user-drag: none;
-  pointer-events: all; 
 }
 
 .floor-plan img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  user-select: none;
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
   pointer-events: none;
 }
 
@@ -78,6 +82,19 @@
   background-color: #1976d2;
 }
 
+.dev-button {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background-color: #ff4444;
+  color: white;
+  z-index: 100;
+}
+
+.floor-plan.dev-mode {
+  cursor: crosshair;
+}
+
 .floor-controls {
   display: flex;
   gap: 1rem;
@@ -99,4 +116,22 @@
 
 .floor-button:hover {
   background-color: #1976d2;
+}
+
+.room-overlay {
+  position: absolute;
+  transform-origin: center;
+  transition: background-color 0.2s;
+  z-index: 2;
+  transform: translate(-50%, -50%); /* Center the overlay on the coordinates */
+  border-radius: 4px;
+}
+
+.room-overlay:hover {
+  background-color: rgba(33, 150, 243, 0.3);
+}
+
+.room-overlay.highlighted {
+  background-color: rgba(33, 150, 243, 0.5);
+  border: 2px solid #2196f3;
 }
