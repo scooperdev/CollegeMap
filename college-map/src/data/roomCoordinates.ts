@@ -7,6 +7,7 @@ interface RoomCoordinate {
   label: string;
 }
 
+// whitney floor 1
 export const whitney1Coordinates: RoomCoordinate[] = [
   {
     id: 'w_eastlobby',
@@ -1362,6 +1363,7 @@ export const whitney1Coordinates: RoomCoordinate[] = [
   }
 ];
 
+// whitney floor 2
 export const whitney2Coordinates: RoomCoordinate[] = [
   {
     id: 'w2_201',

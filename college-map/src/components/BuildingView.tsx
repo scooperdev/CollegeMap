@@ -6,6 +6,11 @@ import whitneyFloor2 from '../assets/whitney-floor2.png';
 import RoomOverlay from './RoomOverlay';
 import { whitney1Coordinates, whitney2Coordinates } from '../data/roomCoordinates';
 
+interface InfoBoxPosition {
+  x: number;
+  y: number;
+}
+
 const buildingData = {
   'whitneyfloor1': {
     name: 'Whitney Building',
@@ -53,6 +58,9 @@ const BuildingView = () => {
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
   const [devMode, setDevMode] = useState(false);
+  const [showInfoBox, setShowInfoBox] = useState(false);
+  const [infoBoxPosition, setInfoBoxPosition] = useState<InfoBoxPosition>({ x: 0, y: 0 });
+  const [selectedRoom, setSelectedRoom] = useState<RoomCoordinate | null>(null);
 
   if (!buildingId || !buildingData[buildingId]) {
     navigate('/buildings');
@@ -138,9 +146,24 @@ const BuildingView = () => {
     setPosition({ x: 0, y: 0 });
   };
 
-  const handleRoomClick = (room: RoomCoordinate) => {
+  // logic for info boxes when clicking rooms
+  const handleRoomClick = (room: RoomCoordinate, event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
     setHighlightedRoomId(room.id);
-    console.log(`Clicked room: ${room.label}`);
+    setSelectedRoom(room);
+    setShowInfoBox(true);
+    
+    const scrollX = window.scrollX || document.documentElement.scrollLeft;
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+    
+    // calculate position accounting for scroll
+    const containerRect = containerRef.current?.getBoundingClientRect();
+    if (containerRect) {
+      setInfoBoxPosition({
+        x: event.clientX + scrollX + 20,
+        y: event.clientY + scrollY - 10 
+      });
+    }
   };
 
   const handleDevClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -150,7 +173,6 @@ const BuildingView = () => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    // Calculate percentages
     const percentX = (x / rect.width) * 100;
     const percentY = (y / rect.height) * 100;
     
@@ -159,6 +181,22 @@ const BuildingView = () => {
 
   const getCoordinatesForCurrentFloor = () => {
     return currentFloor === 2 ? whitney2Coordinates : whitney1Coordinates;
+  };
+
+  const handleClickOutside = () => {
+    const overlays = document.querySelectorAll('.room-overlay');
+    overlays.forEach(overlay => {
+      if (overlay instanceof HTMLElement) {
+        overlay.click();
+      }
+    });
+  };
+
+  const handleBackgroundClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      setShowInfoBox(false);
+      setHighlightedRoomId(null);
+    }
   };
 
   return (
@@ -195,7 +233,7 @@ const BuildingView = () => {
       >
         <div 
           className="floor-plan-content"
-          onClick={handleDevClick}
+          onClick={handleBackgroundClick}
           style={{
             transform: `scale(${scale}) translate(${position.x}px, ${position.y}px)`,
             cursor: isDragging ? 'grabbing' : (isZoomed ? 'grab' : 'default'),
@@ -213,10 +251,27 @@ const BuildingView = () => {
               room={room}
               onClick={handleRoomClick}
               isHighlighted={room.id === highlightedRoomId}
+              buildingName={building.name}
+              floorNumber={currentFloor}
             />
           ))}
         </div>
       </div>
+
+      {showInfoBox && selectedRoom && (
+        <div 
+          className="room-info-box"
+          style={{
+            position: 'fixed',
+            left: `${infoBoxPosition.x}px`,
+            top: `${infoBoxPosition.y}px`
+          }}
+        >
+          <h3>{selectedRoom.label}</h3>
+          <p>{building.name}</p>
+          <p>Floor {currentFloor}</p>
+        </div>
+      )}
 
       <button className="zoom-button" onClick={toggleZoom}>
         {isZoomed ? 'Reset View' : 'Zoom In'}
