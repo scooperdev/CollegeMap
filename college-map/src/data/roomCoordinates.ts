@@ -1362,5 +1362,157 @@ export const whitney1Coordinates: RoomCoordinate[] = [
   }
 ];
 
-// whitney floor 2 coordinates for later
-export const whitney2Coordinates: RoomCoordinate[] = [];
+export const whitney2Coordinates: RoomCoordinate[] = [
+  {
+    id: 'w2_201',
+    x: 34,
+    y: 18,
+    width: 40,
+    height: 40,
+    label: 'Room 201'
+  },
+  {
+    id: 'w2_202',
+    x: 33,
+    y: 32,
+    width: 40,
+    height: 40,
+    label: 'Room 202'
+  },
+  {
+    id: 'w2_203',
+    x: 32,
+    y: 53,
+    width: 40,
+    height: 40,
+    label: 'Room 203'
+  },
+  {
+    id: 'w2_204',
+    x: 20,
+    y: 49,
+    width: 40,
+    height: 40,
+    label: 'Room 204'
+  },
+  {
+    id: 'w2_204a',
+    x: 16,
+    y: 49,
+    width: 40,
+    height: 40,
+    label: 'Room 204A'
+  },
+  {
+    id: 'w2_204b',
+    x: 24,
+    y: 58,
+    width: 40,
+    height: 40,
+    label: 'Room 204B'
+  },
+  {
+    id: 'w2_204c',
+    x: 20,
+    y: 58,
+    width: 40,
+    height: 40,
+    label: 'Room 204C'
+  },
+  {
+    id: 'w2_204d',
+    x: 16,
+    y: 58,
+    width: 40,
+    height: 40,
+    label: 'Room 204D'
+  },
+  {
+    id: 'w2_204e',
+    x: 24,
+    y: 48,
+    width: 40,
+    height: 40,
+    label: 'Room 204E'
+  },
+  {
+    id: 'w2_204g',
+    x: 20,
+    y: 37,
+    width: 40,
+    height: 40,
+    label: 'Room 204G'
+  },
+  {
+    id: 'w2_204j',
+    x: 22,
+    y: 37,
+    width: 40,
+    height: 40,
+    label: 'Room 204J'
+  },
+  {
+    id: 'w2_205',
+    x: 19,
+    y: 22,
+    width: 40,
+    height: 40,
+    label: 'Room 205'
+  },
+  {
+    id: 'w2_205a',
+    x: 27,
+    y: 16,
+    width: 40,
+    height: 40,
+    label: 'Room 205A'
+  },
+  {
+    id: 'w2_206',
+    x: 27,
+    y: 22,
+    width: 40,
+    height: 40,
+    label: 'Room 206'
+  },
+  {
+    id: 'w2_lounge',
+    x: 52,
+    y: 50,
+    width: 40,
+    height: 40,
+    label: 'Lounge'
+  },
+  {
+    id: 'w2_207',
+    x: 70,
+    y: 22,
+    width: 40,
+    height: 40,
+    label: 'Room 207'
+  },
+  {
+    id: 'w2_208',
+    x: 79,
+    y: 23,
+    width: 40,
+    height: 40,
+    label: 'Room 208'
+  },
+  {
+    id: 'w2_209',
+    x: 79,
+    y: 54,
+    width: 40,
+    height: 40,
+    label: 'Room 209'
+  },
+  {
+    id: 'w2_210',
+    x: 70,
+    y: 54,
+    width: 40,
+    height: 40,
+    label: 'Room 210'
+  }
+];
