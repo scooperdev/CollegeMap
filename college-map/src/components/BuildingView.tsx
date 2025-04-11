@@ -3,8 +3,10 @@ import { useState, useRef, useEffect } from 'react';
 import '../styles/BuildingView.css';
 import whitneyFloor1 from '../assets/whitney-floor1.png';
 import whitneyFloor2 from '../assets/whitney-floor2.png';
+import marsagFloor1 from '../assets/marsag-floor1.png';
+import marsagFloor2 from '../assets/marsag-floor2.png';
 import RoomOverlay from './RoomOverlay';
-import { whitney1Coordinates, whitney2Coordinates } from '../data/roomCoordinates';
+import { whitney1Coordinates, whitney2Coordinates, marsag1Coordinates } from '../data/roomCoordinates';
 
 interface InfoBoxPosition {
   x: number;
@@ -34,6 +36,32 @@ const buildingData = {
       },
       2: {
         image: whitneyFloor2,
+        name: 'Second Floor'
+      }
+    }
+  },
+  'marsagfloor1': {
+    name: 'Mars Agriculture Building',
+    floors: {
+      1: {
+        image: marsagFloor1,
+        name: 'First Floor'
+      },
+      2: {
+        image: marsagFloor2,
+        name: 'Second Floor'
+      }
+    }
+  },
+  'marsagfloor2': {
+    name: 'Mars Agriculture Building',
+    floors: {
+      1: {
+        image: marsagFloor1,
+        name: 'First Floor'
+      },
+      2: {
+        image: marsagFloor2,
         name: 'Second Floor'
       }
     }
@@ -136,7 +164,8 @@ const BuildingView = () => {
 
   const handleFloorChange = (newFloor: number) => {
     setCurrentFloor(newFloor);
-    const newBuildingId = newFloor === 2 ? 'whitneyfloor2' : 'whitneyfloor1';
+    const buildingBase = buildingId?.includes('marsag') ? 'marsag' : 'whitney';
+    const newBuildingId = `${buildingBase}floor${newFloor}`;
     navigate(`/building/${newBuildingId}`);
   };
 
@@ -177,9 +206,14 @@ const BuildingView = () => {
     const percentY = (y / rect.height) * 100;
     
     console.log(`Clicked at: x: ${Math.round(percentX)}%, y: ${Math.round(percentY)}%`);
+    console.log(`Building: ${buildingId}, Floor: ${currentFloor}`);
   };
 
   const getCoordinatesForCurrentFloor = () => {
+    if (buildingId?.includes('marsag')) {
+      return currentFloor === 1 ? marsag1Coordinates : [];
+    }
+
     return currentFloor === 2 ? whitney2Coordinates : whitney1Coordinates;
   };
 
@@ -224,12 +258,13 @@ const BuildingView = () => {
 
       <div 
         ref={containerRef}
-        className={`floor-plan ${isZoomed ? 'zoomed' : ''}`}
+        className={`floor-plan ${isZoomed ? 'zoomed' : ''} ${devMode ? 'dev-mode' : ''}`}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onWheel={handleWheel}
+        onClick={devMode ? handleDevClick : undefined}
       >
         <div 
           className="floor-plan-content"

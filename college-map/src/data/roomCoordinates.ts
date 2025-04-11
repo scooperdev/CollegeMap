@@ -1518,3 +1518,182 @@ export const whitney2Coordinates: RoomCoordinate[] = [
     label: 'Room 210'
   }
 ];
+
+export const marsag1Coordinates: RoomCoordinate[] = [
+  {
+    id: 'marsag_101',
+    x: 65, 
+    y: 27,
+    width: 40,
+    height: 40,
+    label: 'Room 101'
+  },
+  {
+    id: 'marsag_102',
+    x: 72,
+    y: 27, 
+    width: 40,
+    height: 40,
+    label: 'Room 102'
+  },
+  {
+    id: 'marsag_103',
+    x: 79,
+    y: 27,
+    width: 40,
+    height: 40,
+    label: 'Room 103'
+  },
+  {
+    id: 'marsag_104',
+    x: 83,
+    y: 27,
+    width: 40,
+    height: 40,
+    label: 'Room 104'
+  },
+  {
+    id: 'marsag_105',
+    x: 86,
+    y: 27,
+    width: 40,
+    height: 40,
+    label: 'Room 105'
+  },
+  {
+    id: 'marsag_172',
+    x: 56,
+    y: 53,
+    width: 40,
+    height: 40,
+    label: 'Room 172'
+  },
+  {
+    id: 'marsag_173',
+    x: 52,
+    y: 64,
+    width: 40,
+    height: 40,
+    label: 'Room 173'
+  },
+  {
+    id: 'marsag_174',
+    x: 56,
+    y: 65,
+    width: 40,
+    height: 40,
+    label: 'Room 174'
+  },
+  {
+    id: 'marsag_175',
+    x: 59,
+    y: 65,
+    width: 40,
+    height: 40,
+    label: 'Room 175'
+  },
+  {
+    id: 'marsag_178',
+    x: 43,
+    y: 58,
+    width: 40,
+    height: 40,
+    label: 'Room 178'
+  },
+  {
+    id: 'marsag_179',
+    x: 45,
+    y: 66,
+    width: 40,
+    height: 40,
+    label: 'Room 179'
+  },
+  {
+    id: 'marsag_181',
+    x: 52,
+    y: 41,
+    width: 40,
+    height: 40,
+    label: 'Room 181'
+  },
+  {
+    id: 'marsag_182',
+    x: 55,
+    y: 42,
+    width: 40,
+    height: 40,
+    label: 'Room 182'
+  },
+  {
+    id: 'marsag_183',
+    x: 59,
+    y: 41,
+    width: 40,
+    height: 40,
+    label: 'Room 183'
+  },
+  {
+    id: 'marsag_185',
+    x: 43,
+    y: 37,
+    width: 40,
+    height: 40,
+    label: 'Room 185'
+  },
+  {
+    id: 'marsag_186',
+    x: 47,
+    y: 37,
+    width: 40,
+    height: 40,
+    label: 'Room 186'
+  },
+  {
+    id: 'marsag_188',
+    x: 44,
+    y: 27,
+    width: 40,
+    height: 40,
+    label: 'Room 188'
+  },
+  {
+    id: 'marsag_189',
+    x: 44,
+    y: 21,
+    width: 40,
+    height: 40,
+    label: 'Room 189'
+  },
+  {
+    id: 'marsag_190',
+    x: 44,
+    y: 15,
+    width: 40,
+    height: 40,
+    label: 'Room 190'
+  },
+  {
+    id: 'marsag_191',
+    x: 53,
+    y: 15,
+    width: 40,
+    height: 40,
+    label: 'Room 191'
+  },
+  {
+    id: 'marsag_192',
+    x: 55,
+    y: 26,
+    width: 40,
+    height: 40,
+    label: 'Room 192'
+  },
+  {
+    id: 'marsag_193',
+    x: 50,
+    y: 26,
+    width: 40,
+    height: 40,
+    label: 'Room 193'
+  }
+];
