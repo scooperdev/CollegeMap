@@ -1,3 +1,4 @@
+// overlay for allowing interaction with the coordinate system and displaying information
 import { RoomCoordinate } from '../data/roomCoordinates';
 
 interface RoomOverlayProps {
@@ -8,7 +9,7 @@ interface RoomOverlayProps {
   floorNumber: number;
 }
 
-const RoomOverlay = ({ room, onClick, isHighlighted }: RoomOverlayProps) => {
+const RoomOverlay = ({ room, onClick, isHighlighted, buildingName, floorNumber, ...props }: RoomOverlayProps) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     onClick(room, e);
   };
@@ -24,6 +25,7 @@ const RoomOverlay = ({ room, onClick, isHighlighted }: RoomOverlayProps) => {
       }}
       onClick={handleClick}
       title={room.label}
+      {...props} // pass through other props including data-room-id
     />
   );
 };

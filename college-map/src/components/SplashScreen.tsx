@@ -1,3 +1,4 @@
+// splash "home" screen
 import { useNavigate } from 'react-router-dom';
 import RoomSearch from './RoomSearch';
 import '../styles/SplashScreen.css';

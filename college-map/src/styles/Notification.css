@@ -1,0 +1,30 @@
+.notification {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2196f3;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  z-index: 2000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.3s ease-out;
+  cursor: pointer;
+  transition: opacity 0.3s ease-out;
+}
+
+.notification.fade-out {
+  opacity: 0;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}

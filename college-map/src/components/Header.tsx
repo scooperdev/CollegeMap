@@ -1,3 +1,4 @@
+// site header component including home button, buildings button and search bar
 import { useNavigate } from 'react-router-dom';
 import RoomSearch from './RoomSearch';
 import '../styles/Header.css';

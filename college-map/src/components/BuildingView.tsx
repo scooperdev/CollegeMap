@@ -1,3 +1,5 @@
+// building view component, displays the floor plan of a building and allows user to zoom in and out,
+// drag the view, and click on rooms to see more information about them; the core of the app.
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import '../styles/BuildingView.css';
@@ -6,7 +8,7 @@ import whitneyFloor2 from '../assets/whitney-floor2.png';
 import marsagFloor1 from '../assets/marsag-floor1.png';
 import marsagFloor2 from '../assets/marsag-floor2.png';
 import RoomOverlay from './RoomOverlay';
-import { whitney1Coordinates, whitney2Coordinates, marsag1Coordinates } from '../data/roomCoordinates';
+import { whitney1Coordinates, whitney2Coordinates, marsag1Coordinates, marsag2Coordinates } from '../data/roomCoordinates';
 
 interface InfoBoxPosition {
   x: number;
@@ -185,14 +187,10 @@ const BuildingView = () => {
     const scrollX = window.scrollX || document.documentElement.scrollLeft;
     const scrollY = window.scrollY || document.documentElement.scrollTop;
     
-    // calculate position accounting for scroll
-    const containerRect = containerRef.current?.getBoundingClientRect();
-    if (containerRect) {
-      setInfoBoxPosition({
-        x: event.clientX + scrollX + 20,
-        y: event.clientY + scrollY - 10 
-      });
-    }
+    setInfoBoxPosition({
+      x: event.clientX + scrollX + 40,
+      y: event.clientY + scrollY - 60  // Changed from -10 to -30 to move tooltip up more
+    });
   };
 
   const handleDevClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -211,7 +209,7 @@ const BuildingView = () => {
 
   const getCoordinatesForCurrentFloor = () => {
     if (buildingId?.includes('marsag')) {
-      return currentFloor === 1 ? marsag1Coordinates : [];
+      return currentFloor === 1 ? marsag1Coordinates : marsag2Coordinates;
     }
 
     return currentFloor === 2 ? whitney2Coordinates : whitney1Coordinates;
@@ -232,6 +230,33 @@ const BuildingView = () => {
       setHighlightedRoomId(null);
     }
   };
+
+  // position info box when room is highlighted via search
+  useEffect(() => {
+    if (highlightedRoomId && !showInfoBox) {
+      const room = getCoordinatesForCurrentFloor().find(r => r.id === highlightedRoomId);
+      if (room) {
+        setSelectedRoom(room);
+        setShowInfoBox(true);
+        
+        const container = containerRef.current;
+        if (container) {
+          const rect = container.getBoundingClientRect();
+          
+          const roomX = (rect.width * room.x / 100);
+          const roomY = (rect.height * room.y / 100);
+          
+          const offsetX = 30; // info box offset
+          const offsetY = -45;  
+          
+          setInfoBoxPosition({
+            x: roomX + rect.left + offsetX,
+            y: roomY + rect.top + offsetY
+          });
+        }
+      }
+    }
+  }, [highlightedRoomId, showInfoBox]);
 
   return (
     <div className="building-container">      
@@ -288,6 +313,7 @@ const BuildingView = () => {
               isHighlighted={room.id === highlightedRoomId}
               buildingName={building.name}
               floorNumber={currentFloor}
+              data-room-id={room.id}
             />
           ))}
         </div>

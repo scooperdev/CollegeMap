@@ -1697,3 +1697,134 @@ export const marsag1Coordinates: RoomCoordinate[] = [
     label: 'Room 193'
   }
 ];
+
+export const marsag2Coordinates: RoomCoordinate[] = [
+  {
+    id: 'marsag2_201',
+    x: 58,
+    y: 85,
+    width: 40,
+    height: 40,
+    label: 'Room 201'
+  },
+  {
+    id: 'marsag2_202',
+    x: 58,
+    y: 69,
+    width: 40,
+    height: 40,
+    label: 'Room 202'
+  },
+  {
+    id: 'marsag2_202a',
+    x: 52,
+    y: 57,
+    width: 40,
+    height: 40,
+    label: 'Room 202A'
+  },
+  {
+    id: 'marsag2_203',
+    x: 57,
+    y: 57,
+    width: 40,
+    height: 40,
+    label: 'Room 203'
+  },
+  {
+    id: 'marsag2_204',
+    x: 62,
+    y: 57,
+    width: 40,
+    height: 40,
+    label: 'Room 204'
+  },
+  {
+    id: 'marsag2_205',
+    x: 41,
+    y: 77,
+    width: 40,
+    height: 40,
+    label: 'Room 205'
+  },
+  {
+    id: 'marsag2_206',
+    x: 42,
+    y: 89,
+    width: 40,
+    height: 40,
+    label: 'Room 206'
+  },
+  {
+    id: 'marsag2_207',
+    x: 48,
+    y: 89,
+    width: 40,
+    height: 40,
+    label: 'Room 207'
+  },
+  {
+    id: 'marsag2_208',
+    x: 40,
+    y: 45,
+    width: 40,
+    height: 40,
+    label: 'Room 208'
+  },
+  {
+    id: 'marsag2_209',
+    x: 58,
+    y: 30,
+    width: 40,
+    height: 40,
+    label: 'Room 209'
+  },
+  {
+    id: 'marsag2_210',
+    x: 53,
+    y: 27,
+    width: 40,
+    height: 40,
+    label: 'Room 210'
+  },
+  {
+    id: 'marsag2_211',
+    x: 55,
+    y: 14,
+    width: 40,
+    height: 40,
+    label: 'Room 211'
+  },
+  {
+    id: 'marsag2_212',
+    x: 41,
+    y: 18,
+    width: 40,
+    height: 40,
+    label: 'Room 212'
+  },
+  {
+    id: 'marsag2_213',
+    x: 41,
+    y: 27,
+    width: 40,
+    height: 40,
+    label: 'Room 213'
+  },
+  {
+    id: 'marsag2_214',
+    x: 41,
+    y: 34,
+    width: 40,
+    height: 40,
+    label: 'Room 214'
+  },
+  {
+    id: 'marsag2_lobby',
+    x: 49,
+    y: 34,
+    width: 40,
+    height: 40,
+    label: 'Lobby'
+  }
+];

@@ -134,10 +134,24 @@
 .room-overlay.highlighted {
   background-color: rgba(33, 150, 243, 0.5);
   border: 2px solid #2196f3;
+  box-shadow: 0 0 15px rgba(33, 150, 243, 0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 15px rgba(33, 150, 243, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(33, 150, 243, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(33, 150, 243, 0.6);
+  }
 }
 
 .room-info-box {
-  position: absolute;
+  position: fixed;
   background-color: rgba(33, 150, 243, 0.95);
   padding: 1rem;
   border-radius: 4px;
@@ -146,7 +160,6 @@
   color: white;
   pointer-events: none;
   min-width: 200px;
-  transform: translateY(-50%); /* center vertically relative to cursor */
 }
 
 .room-info-box h3 {

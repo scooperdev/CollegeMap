@@ -1,3 +1,4 @@
+// simple building list allowing user to select a building to see the floor plans in them.
 import { useNavigate, useLocation } from 'react-router-dom';
 import whitneyImage from '../assets/Sheridan-college-scaled-ChKQUY-864x380.jpeg';
 import marsagImage from '../assets/marsag-thumbnail.jpg';

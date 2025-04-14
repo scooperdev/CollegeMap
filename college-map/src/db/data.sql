@@ -3,7 +3,9 @@ USE college_map;
 -- buildings
 INSERT INTO buildings (id, name, description, floor_plan_image) VALUES 
 ('whitneyfloor1', 'Whitney Building First Floor', 'Main academic center first floor', 'whitney-floor1.png'),
-('whitneyfloor2', 'Whitney Building Second Floor', 'Main academic center second floor', 'whitney-floor2.png');
+('whitneyfloor2', 'Whitney Building Second Floor', 'Main academic center second floor', 'whitney-floor2.png'),
+('marsagfloor1', 'Mars Agriculture Building First Floor', 'Agriculture center first floor', 'marsag-floor1.png'),
+('marsagfloor2', 'Mars Agriculture Building Second Floor', 'Agriculture center second floor', 'marsag-floor2.png');
 
 -- whitney floor 1 rooms
 INSERT INTO rooms (id, building_id, room_number, room_name, floor_number) VALUES
@@ -176,27 +178,72 @@ INSERT INTO rooms (id, building_id, room_number, room_name, floor_number) VALUES
 ('w_190', 'whitneyfloor1', '190', 'Dental Clinic', 1),
 ('w_190b', 'whitneyfloor1', '190B', 'Room 190B', 1);
 
--- whitney floor 2 rooms
+-- whitney floor 2 rooms (expanded list)
 INSERT INTO rooms (id, building_id, room_number, room_name, floor_number) VALUES
-('w2_201', 'whitneyfloor1', '201', 'Room 201', 2),
-('w2_202', 'whitneyfloor1', '202', 'Lab', 2),
-('w2_203', 'whitneyfloor1', '203', 'Room 203', 2),
-('w2_204', 'whitneyfloor1', '204', 'Office Pod', 2),
-('w2_204a', 'whitneyfloor1', '204A', 'Room 204A', 2),
-('w2_204b', 'whitneyfloor1', '204B', 'Room 204B', 2),
-('w2_204c', 'whitneyfloor1', '204C', 'Room 204C', 2),
-('w2_204d', 'whitneyfloor1', '204D', 'Room 204D', 2),
-('w2_204e', 'whitneyfloor1', '204E', 'Room 204E', 2),
-('w2_204g', 'whitneyfloor1', '204G', 'Room 204G', 2),
-('w2_204j', 'whitneyfloor1', '204J', 'Room 204J', 2),
-('w2_205', 'whitneyfloor1', '205', 'GIS Lab', 2),
-('w2_205a', 'whitneyfloor1', '205A', 'Plot Room', 2),
-('w2_206', 'whitneyfloor1', '206', 'Testing Lab', 2),
-('w2_207', 'whitneyfloor1', '207', 'Mac Lab', 2),
-('w2_208', 'whitneyfloor1', '208', 'Lab', 2),
-('w2_209', 'whitneyfloor1', '209', 'PC Lab', 2),
-('w2_210', 'whitneyfloor1', '210', 'Analytics Lab', 2);
+('w2_201', 'whitneyfloor2', '201', 'Room 201', 2),
+('w2_202', 'whitneyfloor2', '202', 'Lab', 2),
+('w2_203', 'whitneyfloor2', '203', 'Room 203', 2),
+('w2_204', 'whitneyfloor2', '204', 'Office Pod', 2),
+('w2_204a', 'whitneyfloor2', '204A', 'Room 204A', 2),
+('w2_204b', 'whitneyfloor2', '204B', 'Room 204B', 2),
+('w2_204c', 'whitneyfloor2', '204C', 'Room 204C', 2),
+('w2_204d', 'whitneyfloor2', '204D', 'Room 204D', 2),
+('w2_204e', 'whitneyfloor2', '204E', 'Room 204E', 2),
+('w2_204g', 'whitneyfloor2', '204G', 'Room 204G', 2),
+('w2_204j', 'whitneyfloor2', '204J', 'Room 204J', 2),
+('w2_205', 'whitneyfloor2', '205', 'GIS Lab', 2),
+('w2_205a', 'whitneyfloor2', '205A', 'Plot Room', 2),
+('w2_206', 'whitneyfloor2', '206', 'Testing Lab', 2),
+('w2_lounge', 'whitneyfloor2', 'LOUNGE', 'Lounge', 2),
+('w2_207', 'whitneyfloor2', '207', 'Mac Lab', 2),
+('w2_208', 'whitneyfloor2', '208', 'Lab', 2),
+('w2_209', 'whitneyfloor2', '209', 'PC Lab', 2),
+('w2_210', 'whitneyfloor2', '210', 'Analytics Lab', 2);
 
 UPDATE rooms 
 SET building_id = 'whitneyfloor2' 
 WHERE floor_number = 2;
+
+-- Mars Ag floor 1 rooms
+INSERT INTO rooms (id, building_id, room_number, room_name, floor_number) VALUES
+('marsag_101', 'marsagfloor1', '101', 'Room 101', 1),
+('marsag_102', 'marsagfloor1', '102', 'Room 102', 1),
+('marsag_103', 'marsagfloor1', '103', 'Room 103', 1),
+('marsag_104', 'marsagfloor1', '104', 'Room 104', 1),
+('marsag_105', 'marsagfloor1', '105', 'Room 105', 1),
+('marsag_172', 'marsagfloor1', '172', 'Room 172', 1),
+('marsag_173', 'marsagfloor1', '173', 'Room 173', 1),
+('marsag_174', 'marsagfloor1', '174', 'Room 174', 1),
+('marsag_175', 'marsagfloor1', '175', 'Room 175', 1),
+('marsag_178', 'marsagfloor1', '178', 'Room 178', 1),
+('marsag_179', 'marsagfloor1', '179', 'Room 179', 1),
+('marsag_181', 'marsagfloor1', '181', 'Room 181', 1),
+('marsag_182', 'marsagfloor1', '182', 'Room 182', 1),
+('marsag_183', 'marsagfloor1', '183', 'Room 183', 1),
+('marsag_185', 'marsagfloor1', '185', 'Room 185', 1),
+('marsag_186', 'marsagfloor1', '186', 'Room 186', 1),
+('marsag_188', 'marsagfloor1', '188', 'Room 188', 1),
+('marsag_189', 'marsagfloor1', '189', 'Room 189', 1),
+('marsag_190', 'marsagfloor1', '190', 'Room 190', 1),
+('marsag_191', 'marsagfloor1', '191', 'Room 191', 1),
+('marsag_192', 'marsagfloor1', '192', 'Room 192', 1),
+('marsag_193', 'marsagfloor1', '193', 'Room 193', 1);
+
+-- Mars Ag floor 2 rooms  
+INSERT INTO rooms (id, building_id, room_number, room_name, floor_number) VALUES
+('marsag2_201', 'marsagfloor2', '201', 'Room 201', 2),
+('marsag2_202', 'marsagfloor2', '202', 'Room 202', 2),
+('marsag2_202a', 'marsagfloor2', '202A', 'Room 202A', 2),
+('marsag2_203', 'marsagfloor2', '203', 'Room 203', 2),
+('marsag2_204', 'marsagfloor2', '204', 'Room 204', 2),
+('marsag2_205', 'marsagfloor2', '205', 'Room 205', 2),
+('marsag2_206', 'marsagfloor2', '206', 'Room 206', 2),
+('marsag2_207', 'marsagfloor2', '207', 'Room 207', 2),
+('marsag2_208', 'marsagfloor2', '208', 'Room 208', 2),
+('marsag2_209', 'marsagfloor2', '209', 'Room 209', 2),
+('marsag2_210', 'marsagfloor2', '210', 'Room 210', 2),
+('marsag2_211', 'marsagfloor2', '211', 'Room 211', 2),
+('marsag2_212', 'marsagfloor2', '212', 'Room 212', 2),
+('marsag2_213', 'marsagfloor2', '213', 'Room 213', 2),
+('marsag2_214', 'marsagfloor2', '214', 'Room 214', 2),
+('marsag2_lobby', 'marsagfloor2', 'LOBBY', 'Lobby', 2);

@@ -26,7 +26,7 @@ app.get('/api/search/:term', async (req, res) => {
       [`%${req.params.term}%`, `%${req.params.term}%`]
     );
     await connection.end();
-    res.json(rows[0] || null);
+    res.json(Array.isArray(rows) ? rows : []);
   } catch (error) {
     console.error('Database error:', error);
     res.status(500).json({ error: 'Database error' });

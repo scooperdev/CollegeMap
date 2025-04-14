@@ -1,3 +1,4 @@
+//tooltip info box showing room info when clicking on a room1
 interface RoomInfoBoxProps {
   roomLabel: string;
   buildingName: string;

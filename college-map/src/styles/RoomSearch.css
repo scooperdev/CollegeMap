@@ -74,3 +74,45 @@
   border-radius: 4px;
   white-space: nowrap;
 }
+
+.room-matches-popup {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2a2a2a;
+  border: 2px solid #2196f3;
+  border-radius: 4px;
+  padding: 1rem;
+  z-index: 1000;
+  min-width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.room-matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.room-match-button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: left;
+}
+
+.room-match-button:hover {
+  background-color: #1976d2;
+}
+
+.compact .room-matches-popup {
+  position: fixed;
+  top: 70px;
+  transform: translateX(-50%);
+}
