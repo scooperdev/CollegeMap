@@ -189,7 +189,7 @@ const BuildingView = () => {
     
     setInfoBoxPosition({
       x: event.clientX + scrollX + 40,
-      y: event.clientY + scrollY - 60  // Changed from -10 to -30 to move tooltip up more
+      y: event.clientY + scrollY - 60
     });
   };
 
