@@ -1,5 +1,3 @@
-while this is not a python web app, this will still serve as instructions to build and run the web app.
-
 you need:
 
 nodejs, npm
