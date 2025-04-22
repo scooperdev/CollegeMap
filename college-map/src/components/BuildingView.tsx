@@ -70,6 +70,7 @@ const buildingData = {
   }
 };
 
+// set parameters for scaling, position, building data and zoom/drag functionality
 const BuildingView = () => {
   const { buildingId } = useParams();
   const location = useLocation();
@@ -149,7 +150,7 @@ const BuildingView = () => {
     }
   };
 
-  useEffect(() => {
+  useEffect(() => { // change default scroll for zoom behavior
     const container = containerRef.current;
     if (container) {
       const preventDefaultScroll = (e: WheelEvent) => {
@@ -164,6 +165,7 @@ const BuildingView = () => {
     }
   }, [isZoomed]);
 
+  // floor switching functionality
   const handleFloorChange = (newFloor: number) => {
     setCurrentFloor(newFloor);
     const buildingBase = buildingId?.includes('marsag') ? 'marsag' : 'whitney';
@@ -193,6 +195,7 @@ const BuildingView = () => {
     });
   };
 
+  // clicking logic for clicking on floor plan elements
   const handleDevClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!devMode) return;
     
@@ -258,6 +261,7 @@ const BuildingView = () => {
     }
   }, [highlightedRoomId, showInfoBox]);
 
+  // setup classes for use in logic of building view
   return (
     <div className="building-container">      
       <h1>{building.name} - {building.floors[currentFloor].name}</h1>
