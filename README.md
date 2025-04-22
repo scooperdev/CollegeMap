@@ -2,10 +2,8 @@
 ## Made by Steven Cooper
 
 # Documentation:
-https://livesheridan-my.sharepoint.com/:w:/g/personal/stevencooper_sheridan_edu/ERIB_DqAxW5Aprx-IXatIkoBt7Ac49cYW9QpDbFZZFMk5Q?e=bbgJkF
+* Documentation is a Work-In-Progress 
 
-
-* Work In-Progress 
 Interactive campus room finder
 Search for rooms and find where they are located on campus
 zoom into interactive map 
